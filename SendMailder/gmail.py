@@ -6,7 +6,7 @@ from values import *
 from email.mime.multipart import MIMEMultipart
 #from email.MIMEText import MIMEText
 from email.mime.text import MIMEText
-from email.MIMEBase import MIMEBase
+from email.mime.base import MIMEBase
 from email import encoders
 
 cereal_df = pd.read_csv("mails.csv")
