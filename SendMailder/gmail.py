@@ -6,6 +6,7 @@ from values import *
 from email.mime.multipart import MIMEMultipart
 #from email.MIMEText import MIMEText
 from email.mime.text import MIMEText
+from email.MIMEBase import MIMEBase
 from email import encoders
 
 cereal_df = pd.read_csv("mails.csv")
@@ -32,7 +33,8 @@ def sentMail():
 		body = row['msg']+row['correo']
 		msg.attach(MIMEText(body, 'plain'))
 		filename = "ravelbolero.pdf"#archivo a enviar
-		attachment = open("/home/moebius/Documentos/ControlVentas/Send\ mailder", "rb")#directorio
+		#attachment = open("/home/moebius/Documentos/ControlVentas/SendMailder", "rb")#directorio
+		attachment = open(filename, "rb")
 		#codificacion
 		part = MIMEBase('application', 'octet-stream')
 		part.set_payload((attachment).read())
