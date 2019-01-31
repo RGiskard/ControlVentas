@@ -9,6 +9,17 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 
+#Etablece importacion tkinker windows linux
+import platform
+plataform=platform.system()
+'''
+if plataform=="Windows":
+	from tkinter import *
+
+else:'''
+
+from Tkinter import *
+
 cereal_df = pd.read_csv("mails.csv")
 cabecera=["correo","Asunto","msg"]
 #mailto = input("what email address do you want to send your message to? \n ")
@@ -52,14 +63,7 @@ def sentMail():
 		print(" \n Sent!")
 		mailServer.quit()
 
-import platform
-plataform=platform.system()
 
-if plataform=="Windows":
-	from tkinter import *
-
-else:
-	from Tkinter import *
 
 class App:
     def __init__(self, master):
