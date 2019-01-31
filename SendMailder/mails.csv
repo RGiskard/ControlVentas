@@ -1,5 +1,5 @@
-correo,Asunto,msg
-rcondorib@gmail.com,Test 1,Este es el mensaje enviado abcd:
-suigeneris188@gmail.com,Test 2,Este es el mensaje enviado abc:
-rcondorib@hotmail.com,Test 3,Este es el mensaje enviado ab:
-dojazueirl@gmail.com,Test 4,Este es el mensaje enviado a: 
+DNI,Nombre,Correo,Asunto,msg,Archivo
+12345678,Rómulo,rcondorib@gmail.com,"Enero, 2019 ",Enero,farenheit451
+11111110,Bruno,suigeneris188@gmail.com,"Enero, 2019 ",Enero,ravelbolero
+2345673,bruno menis,rcondorib@hotmail.com,"Enero, 2019 ",Enero,farenheit451
+23456789,djz,dojazueirl@gmail.com,"Enero, 2019 ",Enero,farenheit451

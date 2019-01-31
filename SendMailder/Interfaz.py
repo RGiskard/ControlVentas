@@ -28,10 +28,11 @@ passwordlabel.grid(row=1,column=0,padx=10,pady=10)
 #def codigoBoton():
 	#gmailaddress="rcondorib@unsa.edu.pe"
 
-def helloCallBack():
+def getFile():
    raiz.filename=filedialog.askopenfilename(initialdir = "/",title = "Seleccione archivos csv",filetypes = (("Archivos csv","*.csv"),("Todos los Archivos","*.*")))
+   print(raiz.filename)
 
-botonBuscar=Button(raiz,text="Buscar csv",command = helloCallBack)
+botonBuscar=Button(raiz,text="Buscar csv",command = getFile)
 botonBuscar.grid(row=2,column=1)
 raiz.mainloop()
 

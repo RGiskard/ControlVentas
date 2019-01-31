@@ -12,38 +12,21 @@ from email import encoders
 #Etablece importacion tkinker windows linux
 import platform
 plataform=platform.system()
-'''
-if plataform=="Windows":
-	from tkinter import *
-
-else:'''
-
-from Tkinter import *
-
-cereal_df = pd.read_csv("mails.csv")
-cabecera=["correo","Asunto","msg"]
-#mailto = input("what email address do you want to send your message to? \n ")
-#msg = input("What is your message? \n ")
-
-#mailServer = smtplib.SMTP('smtp.gmail.com' , 587)
-#mailServer.starttls()
-#mailServer.login(gmailaddress , gmailpassword)
-#mailServer.sendmail(gmailaddress, mailto , msg)
-#print(" \n Sent!")
-#mailServer.quit()
 
 
 
-def sentMail():
+def sentMail(gmailaddress,gmailpassword):
+	cereal_df = pd.read_csv("mails.csv")
+	cabecera=["DNI","Nombre","Correo","Asunto","msg","Archivo"]
 	for index, row in cereal_df.iterrows():
 		####Construccipon del enviador con subject
 		msg = MIMEMultipart()
 		msg['From'] = gmailaddress
-		msg['To'] = row['correo'] 
-		msg['Subject'] = row['Asunto']
-		body = row['msg']+row['correo']
+		msg['To'] = row['Correo'] 
+		msg['Subject'] ="Boleta "+row['Asunto']
+		body = "Estimado: "+row['Nombre']+"\nAdjunto en el presente mensaje encontrará su boleta del mes de: "+row['Asunto']+"\nMuchas Gracias por su Preferencia\n No es necesario responder a este mensaje"
 		msg.attach(MIMEText(body, 'plain'))
-		filename = "ravelbolero.pdf"#archivo a enviar
+		filename = row['Archivo']+".pdf"#archivo a enviar
 		#attachment = open("/home/moebius/Documentos/ControlVentas/SendMailder", "rb")#directorio
 		attachment = open(filename, "rb")
 		#codificacion
@@ -59,22 +42,9 @@ def sentMail():
 		mailServer = smtplib.SMTP('smtp.gmail.com' , 587)
 		mailServer.starttls()
 		mailServer.login(gmailaddress , gmailpassword)
-		mailServer.sendmail(gmailaddress, row['correo'] , text)
+		mailServer.sendmail(gmailaddress, row['Correo'] , text)
 		print(" \n Sent!")
 		mailServer.quit()
 
 
-'''
-class App:
-    def __init__(self, master):
-        frame = Frame(master)
-        frame.pack()
-        self.hi_there = Button(frame, text="Hello World", command=self.say_hi)
-        self.hi_there.pack(side=LEFT)
-    def say_hi(self):
-        print ("hola todo el mundo!")
-
-root = Tk()
-app = App(root)
-root.mainloop()'''
 
