@@ -15,18 +15,18 @@ plataform=platform.system()
 
 
 
-def sentMail(gmailaddress,gmailpassword):
+def sentMail(keys):
 	cereal_df = pd.read_csv("mails.csv")
 	cabecera=["DNI","Nombre","Correo","Asunto","msg","Archivo"]
 	for index, row in cereal_df.iterrows():
 		####Construccipon del enviador con subject
 		msg = MIMEMultipart()
-		msg['From'] = gmailaddress
+		msg['From'] = keys["gmailaddress"]
 		msg['To'] = row['Correo'] 
 		msg['Subject'] ="Boleta "+row['Asunto']
 		body = "Estimado: "+row['Nombre']+"\nAdjunto en el presente mensaje encontrará su boleta del mes de: "+row['Asunto']+"\nMuchas Gracias por su Preferencia\n No es necesario responder a este mensaje"
 		msg.attach(MIMEText(body, 'plain'))
-		filename = row['Archivo']+".pdf"#archivo a enviar
+		filename = keys["rutaFiles"]+row['Archivo']+".pdf"#archivo a enviar
 		#attachment = open("/home/moebius/Documentos/ControlVentas/SendMailder", "rb")#directorio
 		attachment = open(filename, "rb")
 		#codificacion
@@ -41,8 +41,8 @@ def sentMail(gmailaddress,gmailpassword):
 		text = msg.as_string()
 		mailServer = smtplib.SMTP('smtp.gmail.com' , 587)
 		mailServer.starttls()
-		mailServer.login(gmailaddress , gmailpassword)
-		mailServer.sendmail(gmailaddress, row['Correo'] , text)
+		mailServer.login(keys["gmailaddress"] , keys["gmailpassword"])
+		mailServer.sendmail(keys["gmailaddress"], row['Correo'] , text)
 		print(" \n Sent!")
 		mailServer.quit()
 

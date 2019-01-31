@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import filedialog
+from gmail import *
 import platform
 
 plataform=platform.system()
@@ -22,7 +23,7 @@ correolabel.grid(row=0,column=0,padx=10,pady=10)
 
 cuadroPasword=Entry(raiz)
 cuadroPasword.grid(row=1,column=1,padx=10,pady=10)
-cuadroPasword.config(show="*")
+#cuadroPasword.config(show="*")
 
 passwordlabel=Label(raiz,text="Contraseña:  ")
 passwordlabel.grid(row=1,column=0,padx=10,pady=10)
@@ -36,7 +37,7 @@ def getRuta(path):
 		element=fragments[len(fragments)-1]
 		return path.replace(element,"")	
 	else:
-		fragments=path.split("\\")
+		fragments=path.split("/")#cambiar en caso no funcione \\
 		element=fragments[len(fragments)-1]
 		return path.replace(element,"")		
 
@@ -50,10 +51,7 @@ def getFile():
 
 
 def Execute():   
-	print("ruta: "+Keys["ruta"])
-	print("gmailaddress: "+Keys["gmailaddress"])
-	print("gmailpassword: "+Keys["gmailpassword"])
-	print("rutaFiles: "+Keys["rutaFiles"])
+	sentMail(Keys)
 
 
 botonBuscar=Button(raiz,text="Buscar csv",command = getFile)
