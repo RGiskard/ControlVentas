@@ -2,7 +2,6 @@
 
 import smtplib 
 import pandas as pd
-from values import *
 from email.mime.multipart import MIMEMultipart
 #from email.MIMEText import MIMEText
 from email.mime.text import MIMEText
@@ -33,7 +32,7 @@ def sentMail(keys):
 		part = MIMEBase('application', 'octet-stream')
 		part.set_payload((attachment).read())
 		encoders.encode_base64(part)
-		part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+		part.add_header('Content-Disposition', "attachment; filename= %s" % row['Archivo']+".pdf")
 		msg.attach(part)
 		###Fin construcción
 		###Construcción de bloque para enviar archivo adjunto
@@ -43,7 +42,7 @@ def sentMail(keys):
 		mailServer.starttls()
 		mailServer.login(keys["gmailaddress"] , keys["gmailpassword"])
 		mailServer.sendmail(keys["gmailaddress"], row['Correo'] , text)
-		print(" \n Sent!")
+		#print(" \n Sent!")
 		mailServer.quit()
 
 
