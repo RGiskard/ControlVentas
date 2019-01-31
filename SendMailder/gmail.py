@@ -52,8 +52,14 @@ def sentMail():
 		print(" \n Sent!")
 		mailServer.quit()
 
+import platform
+plataform=platform.system()
 
-from Tkinter import *
+if plataform=="Windows":
+	from tkinter import *
+
+else:
+	from Tkinter import *
 
 class App:
     def __init__(self, master):
@@ -62,7 +68,7 @@ class App:
         self.hi_there = Button(frame, text="Hello World", command=self.say_hi)
         self.hi_there.pack(side=LEFT)
     def say_hi(self):
-        print "hola todo el mundo!"
+        print ("hola todo el mundo!")
 
 root = Tk()
 app = App(root)
