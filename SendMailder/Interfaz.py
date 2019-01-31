@@ -30,17 +30,30 @@ passwordlabel.grid(row=1,column=0,padx=10,pady=10)
 #def codigoBoton():
 	#gmailaddress="rcondorib@unsa.edu.pe"
 
+def getRuta(path):
+	if plataform!="Windows":
+		fragments=path.split("/")
+		element=fragments[len(fragments)-1]
+		return path.replace(element,"")	
+	else:
+		fragments=path.split("\\")
+		element=fragments[len(fragments)-1]
+		return path.replace(element,"")		
+
+
 def getFile():
    raiz.filename=filedialog.askopenfilename(initialdir = "/",title = "Seleccione archivos csv",filetypes = (("Archivos csv","*.csv"),("Todos los Archivos","*.*")))
    Keys["gmailaddress"]=cuadroCorreo.get()
    Keys["gmailpassword"]=cuadroPasword.get()
    Keys["ruta"]=raiz.filename
+   Keys["rutaFiles"]=getRuta(Keys["ruta"])
 
 
 def Execute():   
 	print("ruta: "+Keys["ruta"])
 	print("gmailaddress: "+Keys["gmailaddress"])
 	print("gmailpassword: "+Keys["gmailpassword"])
+	print("rutaFiles: "+Keys["rutaFiles"])
 
 
 botonBuscar=Button(raiz,text="Buscar csv",command = getFile)
