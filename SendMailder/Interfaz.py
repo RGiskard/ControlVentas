@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 from gmail import *
 import platform
+from tkinter import ttk
 
 plataform=platform.system()
 raiz=Tk()
@@ -50,7 +51,7 @@ def getFile():
    Keys["rutaFiles"]=getRuta(Keys["ruta"])
 
 
-def Execute():   
+def Execute(): 
 	sentMail(Keys)
 
 
