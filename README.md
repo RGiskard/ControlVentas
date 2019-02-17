@@ -10,3 +10,7 @@ Basado en [Tutorial: How to send an email with Python ](URL "http://naelshiab.co
 * sudo pip3 install pymysql
 * sudo apt-get install python3-mysql.connector
 * sudo pip3 install Flask
+
+#Comandos Flask
+
+* FLASK_APP=hello.py flask run
