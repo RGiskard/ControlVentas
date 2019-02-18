@@ -6,6 +6,8 @@ Basado en [Tutorial: How to send an email with Python ](URL "http://naelshiab.co
 
 # Entornos virtuales python
 * sudo apt-get install python3-venv
+## Creación de entornos virtuales 
+* python3 -m venv virtual-environment-name
 
 # Requerimientos sqlalchemy
 
