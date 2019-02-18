@@ -11,4 +11,6 @@ npm-debug.log
 yarn-error.log
 .env
 __pycache__
-/Entity/__pycache__
+/Entity/__pycache_
+flasky
+_

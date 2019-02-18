@@ -1,7 +1,8 @@
-from conect import *
+#from conect import *
 from flask import Flask
+
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    return "Hello larvitas"+str(engine)
+def index():
+    return '<h1>Hello World</h1>'
