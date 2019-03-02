@@ -20,7 +20,7 @@ Basado en [Tutorial: How to send an email with Python ](URL "http://naelshiab.co
 * pip install flask-bootstrap
 * pip install flask-wtf //manejo de formularios
 * pip install flask-migrate //migraciones
-
+* pip install flask-mail //email con flask
 # Comandos Flask
 
 * FLASK_APP=hello.py flask run
