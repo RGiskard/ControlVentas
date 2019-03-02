@@ -19,6 +19,7 @@ Basado en [Tutorial: How to send an email with Python ](URL "http://naelshiab.co
 * sudo pip3 install Flask
 * pip install flask-bootstrap
 * pip install flask-wtf //manejo de formularios
+* pip install flask-migrate //migraciones
 
 # Comandos Flask
 
