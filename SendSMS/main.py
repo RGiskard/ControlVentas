@@ -4,7 +4,6 @@ def test():
 	C=Connector()
 	C.launch()
 	S=SenderSMS(C.androidVersion())
-	#numbers=["957855666","957996841","988183690"]
 	total=5;
 	numbers=[]
 	for i in range(total):
